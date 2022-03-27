@@ -33,3 +33,14 @@ def top_ten_tweeted_days(tweets):
 
   top_dates = sorted(date_tweet_count, key=date_tweet_count.get, reverse=True)[:10]
   return { k: date_tweet_count[k] for k in top_dates }
+
+def top_ten_used_hashtags(tweets):
+  hashtage_tweet_count = defaultdict(lambda: 0)
+
+  for tweet in tweets:
+    hashtags = filter(lambda t: t[0] == '#', tweet['content'].split())
+    for hashtag in hashtags:
+      hashtage_tweet_count[hashtag] += 1
+
+  top_hashtags = sorted(hashtage_tweet_count, key=hashtage_tweet_count.get, reverse=True)[:10]
+  return { k: hashtage_tweet_count[k] for k in top_hashtags }
