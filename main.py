@@ -1,4 +1,5 @@
 import json
+from operator import itemgetter
 
 def load_information(route):
   tweets = []
@@ -9,3 +10,6 @@ def load_information(route):
 
   return tweets
 
+def most_retweeted(tweets):
+  sorted_tweets = sorted(tweets, key=itemgetter('retweetCount'), reverse=True)
+  return sorted_tweets[0:10]
