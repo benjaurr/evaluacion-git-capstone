@@ -44,3 +44,12 @@ def top_ten_used_hashtags(tweets):
 
   top_hashtags = sorted(hashtage_tweet_count, key=hashtage_tweet_count.get, reverse=True)[:10]
   return { k: hashtage_tweet_count[k] for k in top_hashtags }
+
+def main(): # as an example, all functions are used
+  tweets = load_information("evaluacion-git-capstone/farmers-protest-tweets-2021-03-5.json") # make sure route is correct
+  print(most_retweeted(tweets))
+  print(most_emited_tweets(tweets))
+  print(top_ten_tweeted_days(tweets))
+  print(top_ten_used_hashtags(tweets))
+
+main()
